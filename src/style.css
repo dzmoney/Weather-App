@@ -1,0 +1,76 @@
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+ul {
+  padding: 0px;
+}
+
+li {
+  list-style: none;
+}
+
+.search-bar {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  width: 60%;
+}
+
+.degree-type {
+  position: relative;
+  right: 34px;
+  top: -20px;
+}
+
+.celcius {
+  position: relative;
+  right: -20px;
+}
+
+.top-row {
+  font-size: 20px;
+  font-weight: 500;
+  padding: 5px 18px;
+  position: relative;
+  top: -15px;
+}
+
+.current-city-card {
+  font-size: 26px;
+}
+
+.current-date-time {
+  font-size: 22px;
+  text-align: left;
+  position: relative;
+  top: 30px;
+  left: 30px;
+}
+
+.stats {
+  font-size: 16px;
+  text-align: right;
+  position: relative;
+  top: 30px;
+  right: 30px;
+}
+
+.mid-row {
+  line-height: 24px;
+  padding: 26px;
+}
+
+.bottom-row {
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 10px;
+}
+
+.future-dates {
+  font-size: 20px;
+}
+
+.high-temp {
+  font-weight: bold;
+}
