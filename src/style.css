@@ -1,9 +1,6 @@
 body {
   font-family: "Roboto", sans-serif;
   color: #6c648d;
-  border: solid 1px #919ca5;
-  border-radius: 4px;
-  max-width: 55%;
 }
 
 ul {
@@ -13,6 +10,12 @@ ul {
 
 li {
   list-style: none;
+}
+
+.container {
+  border: solid 1px #919ca5;
+  border-radius: 4px;
+  max-width: 55%;
 }
 
 .search-bar {
@@ -81,4 +84,9 @@ li {
 
 .high-temp {
   font-weight: bold;
+}
+
+#tag {
+  position: relative;
+  left: 302px;
 }
