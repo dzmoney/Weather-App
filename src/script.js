@@ -1,4 +1,4 @@
-//Current Time
+//Current Date Time
 let now = new Date();
 
 let currentDate = document.querySelector("#current-date");
@@ -24,7 +24,7 @@ let days = [
 ];
 let day = days[now.getDay()];
 
-currentDate.innerHTML = `${day} ${date}`;
+currentDate.innerHTML = `${day}, ${date}`;
 currentTime.innerHTML = `${hour}:${mins}`;
 
 //Display Temp

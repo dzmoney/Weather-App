@@ -7,6 +7,7 @@ body {
 }
 
 ul {
+  margin: 0 auto;
   padding: 0px;
 }
 
@@ -27,43 +28,40 @@ li {
   margin-top: 20px;
 }
 
-.degree-type {
-  position: relative;
-  right: 34px;
-  top: -20px;
-}
-
-.celcius {
-  position: relative;
-  right: -20px;
-}
-
 .top-row {
-  font-size: 20px;
   font-weight: 500;
-  padding: 5px 18px;
-  position: relative;
-  top: -15px;
 }
 
-.current-city-card {
-  font-size: 26px;
+#current-city-card {
+  text-align: center;
 }
 
-.current-date-time {
+#current-city {
+  font-size: 30px;
+}
+
+#current-city-temp {
+  font-size: 25px;
+}
+
+#current-city-icon {
+  font-size: 35px;
+}
+
+#current-date-time {
   font-size: 22px;
   text-align: left;
   position: relative;
-  top: 30px;
-  left: 30px;
+  top: 20px;
+  left: 45px;
 }
 
 .stats {
   font-size: 16px;
   text-align: right;
   position: relative;
-  top: 30px;
-  right: 30px;
+  top: 20px;
+  right: 45px;
 }
 
 .mid-row {
