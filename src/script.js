@@ -32,7 +32,7 @@ currentTime.innerHTML = `${hour}:${mins}`;
 function getSearchWeather(response) {
   document.querySelector("#current-city").innerHTML = response.data.name;
   let temperature = Math.round(response.data.main.temp);
-  document.querySelector("#current-city-temp").innerHTML = `${temperature}°C`;
+  document.querySelector("#current-city-temp").innerHTML = `${temperature}`;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed

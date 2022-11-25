@@ -35,6 +35,10 @@ li {
   font-weight: 500;
 }
 
+.card-body {
+  padding-bottom: 0;
+}
+
 #current-city-card {
   text-align: center;
 }
@@ -45,6 +49,8 @@ li {
 
 #current-city-description {
   font-size: 20px;
+  position: relative;
+  top: -15px;
 }
 
 #current-city-description:first-letter {
@@ -52,11 +58,19 @@ li {
 }
 
 #current-city-temp {
-  font-size: 25px;
+  font-size: 40px;
+}
+
+.units {
+  position: relative;
+  top: -52px;
+  right: -38px;
 }
 
 #current-city-icon {
   font-size: 35px;
+  position: relative;
+  top: -20px;
 }
 
 #current-date-time {
