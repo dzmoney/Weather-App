@@ -27,7 +27,7 @@ let day = days[now.getDay()];
 currentDate.innerHTML = `${day}, ${date}`;
 currentTime.innerHTML = `${hour}:${mins}`;
 
-//Display Temp
+//Temp Search and Display
 
 function getSearchWeather(response) {
   document.querySelector("#current-city").innerHTML = response.data.name;
@@ -37,6 +37,8 @@ function getSearchWeather(response) {
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
+  document.querySelector("#current-city-description").innerHTML =
+    response.data.weather[0].description;
   let icon = document.querySelector("#icon");
   icon.setAttribute(
     "src",
