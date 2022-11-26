@@ -12,6 +12,10 @@ li {
   list-style: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 .container {
   border: solid 1px #919ca5;
   border-radius: 4px;
@@ -39,8 +43,13 @@ li {
   padding-bottom: 0;
 }
 
-#current-city-card {
+.current-city-card {
   text-align: center;
+}
+
+.current-city-card .active {
+  color: #6c648d;
+  cursor: default;
 }
 
 #current-city {
@@ -64,7 +73,7 @@ li {
 .units {
   position: relative;
   top: -52px;
-  right: -42px;
+  right: -44px;
 }
 
 #current-city-icon {
