@@ -30,9 +30,10 @@ currentTime.innerHTML = `${hour}:${mins}`;
 //Temp Search and Display
 
 function getSearchWeather(response) {
-  document.querySelector("#current-city").innerHTML = response.data.name;
-  let temperature = Math.round(response.data.main.temp);
+  celsiusTemp = response.data.main.temp;
+  let temperature = Math.round(celsiusTemp);
   document.querySelector("#current-city-temp").innerHTML = `${temperature}`;
+  document.querySelector("#current-city").innerHTML = response.data.name;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
@@ -72,10 +73,24 @@ function getCurrentLocationWeather(event) {
   navigator.geolocation.getCurrentPosition(searchCurrentLocation);
 }
 
+function showFahrenheit(event) {
+  event.preventDefault();
+  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
+  let tempDisplay = document.querySelector("#current-city-temp");
+  tempDisplay.innerHTML = Math.round(fahrenheitTemp);
+}
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocationWeather);
+
+let celsiusTemp = null;
+
+//Celcius to Fahrenheit Conversion
+
+let fahrenheit = document.querySelector("#fahrenheit");
+fahrenheit.addEventListener("click", showFahrenheit);
 
 searchCity("Toronto");
