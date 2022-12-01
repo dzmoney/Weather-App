@@ -98,23 +98,19 @@ a {
   right: 45px;
 }
 
-.mid-row {
+.forecast {
   line-height: 24px;
   padding: 26px;
+  text-align: center;
+  margin-top: -20px;
 }
 
-.bottom-row {
+.forecast-date {
   font-size: 18px;
-  line-height: 24px;
-  margin-bottom: 10px;
 }
 
-.future-dates {
-  font-size: 20px;
-}
-
-.high-temp {
-  font-weight: bold;
+.forecast-temp-min {
+  opacity: 0.6;
 }
 
 #tag {
