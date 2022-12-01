@@ -29,6 +29,34 @@ currentTime.innerHTML = `${hour}:${mins}`;
 
 //Temp Search and Display
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Fri", "Sat", "Sun"];
+
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+        <div class="col">
+            <div class="forecast-date">${day}</div>
+            <img
+              src="http://openweathermap.org/img/wn/03d@2x.png"
+              alt=""
+              width="40px"
+            />
+            <div class="forecast-temps">
+              <span class="forecast-temp-max">8°</span>
+              <span class="forecast-temp-min">0°</span>
+            </div>
+        </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
+
 function getSearchWeather(response) {
   celsiusTemp = response.data.main.temp;
   let temperature = Math.round(celsiusTemp);
@@ -104,4 +132,5 @@ fahrenheitLink.addEventListener("click", showFahrenheit);
 let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", showCelsius);
 
+displayForecast();
 searchCity("Toronto");
