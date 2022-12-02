@@ -41,7 +41,7 @@ function displayForecast() {
         <div class="col">
             <div class="forecast-date">${day}</div>
             <img
-              src="http://openweathermap.org/img/wn/03d@2x.png"
+              src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky.png"
               alt=""
               width="40px"
             />
@@ -78,7 +78,7 @@ function getSearchWeather(response) {
 
 function searchCity(city) {
   let apiKey = "3otb16192f2361042505a3f67b74408b";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(getSearchWeather);
 }
 
@@ -88,19 +88,19 @@ function handleSubmit(event) {
   searchCity(city);
 }
 
-// function searchCurrentLocation(position) {
-//   let latitude = position.coords.latitude;
-//   let longitude = position.coords.longitude;
-//   let apiKey = "3otb16192f2361042505a3f67b74408b";
-//   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+function searchCurrentLocation(position) {
+  // console.log(position);
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+  let apiKey = "3otb16192f2361042505a3f67b74408b";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(getSearchWeather);
+}
 
-//   axios.get(apiUrl).then(getSearchWeather);
-// }
-
-// function getCurrentLocationWeather(event) {
-//   event.preventDefault();
-//   navigator.geolocation.getCurrentPosition(searchCurrentLocation);
-// }
+function getCurrentLocationWeather(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(searchCurrentLocation);
+}
 
 //Celsius / Fahrenheit
 
@@ -124,8 +124,8 @@ function showCelsius(event) {
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-// let currentLocationButton = document.querySelector("#current-location-button");
-// currentLocationButton.addEventListener("click", getCurrentLocationWeather);
+let currentLocationButton = document.querySelector("#current-location-button");
+currentLocationButton.addEventListener("click", getCurrentLocationWeather);
 
 let celsiusTemp = null;
 
