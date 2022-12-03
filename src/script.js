@@ -27,28 +27,44 @@ let day = days[now.getDay()];
 currentDate.innerHTML = `${day}, ${date}`;
 currentTime.innerHTML = `${hour}:${mins}`;
 
+function formatForecastDate(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
 //Temp Search and Display
 
 function displayForecast(response) {
   console.log(response.data);
+  let forecastData = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
-  let days = ["Fri", "Sat", "Sun"];
 
   let forecastHTML = `<div class="row">`;
-  days.forEach(function (day) {
+  forecastData.forEach(function (forecastDay) {
     forecastHTML =
       forecastHTML +
       `
         <div class="col">
-            <div class="forecast-date">${day}</div>
+            <div class="forecast-date">${formatForecastDate(
+              forecastDay.time
+            )}</div>
             <img
-              src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky.png"
+              src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+                forecastDay.condition.icon
+              }.png"
               alt=""
               width="40px"
             />
             <div class="forecast-temps">
-              <span class="forecast-temp-max">8°</span>
-              <span class="forecast-temp-min">0°</span>
+              <span class="forecast-temp-max">${
+                forecastDay.temperature.maximum
+              }</span>
+              <span class="forecast-temp-min">${
+                forecastDay.temperature.minimum
+              }</span>
             </div>
         </div>`;
   });
