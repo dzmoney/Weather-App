@@ -37,16 +37,14 @@ function formatForecastDate(timestamp) {
 //Temp Search and Display
 
 function displayForecast(response) {
-  console.log(response.data);
   let forecastData = response.data.daily;
 
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-  forecastData.forEach(function (forecastDay) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecastData.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML += `
         <div class="col">
             <div class="forecast-date">${formatForecastDate(
               forecastDay.time
@@ -59,14 +57,15 @@ function displayForecast(response) {
               width="40px"
             />
             <div class="forecast-temps">
-              <span class="forecast-temp-max">${
+              <span class="forecast-temp-max">${Math.round(
                 forecastDay.temperature.maximum
-              }</span>
-              <span class="forecast-temp-min">${
+              )}°</span>
+              <span class="forecast-temp-min">${Math.round(
                 forecastDay.temperature.minimum
-              }</span>
+              )}°</span>
             </div>
         </div>`;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
 
